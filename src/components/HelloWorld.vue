@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div>Header component</div>
+    
     <h1>{{ msg }}</h1>
     <div>Enter in your birthday</div>
     <div>Form goes here</div>
