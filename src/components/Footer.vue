@@ -1,13 +1,5 @@
-<template lang="">
-    <div>
-        
-    </div>
-</template>
+<template lang=""><div> Footer </div></template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>

@@ -1,10 +1,11 @@
 <template>
   <div class="hello">
-    
     <h1>{{ msg }}</h1>
     <div>Enter in your birthday</div>
     <div>Form goes here</div>
-    <div>Component for viewing games goes here conditionally depending on filter</div>
+    <div>
+      Component for viewing games goes here conditionally depending on filter
+    </div>
     <div></div>
   </div>
 </template>
@@ -13,8 +14,8 @@
 export default {
   name: "HelloWorld",
   props: {
-    msg: String,
-  },
+    msg: String
+  }
 };
 </script>
 
