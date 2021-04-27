@@ -22,7 +22,7 @@ const cors_server = "https://games-years-born.herokuapp.com/";
 //     });
 // }
 
-async function getAccessToken() {
+export async function getAccessToken() {
   try {
     const response = await axios.post(
       `https://id.twitch.tv/oauth2/token?client_id=${client_id}&client_secret=${client_secret}&grant_type=${grant_type}`
@@ -38,18 +38,15 @@ async function getAccessToken() {
 // Our Queen the Access Token
 // const accessToken = getAccessToken();
 
-// getAccessToken.then(token => {
-//   accessToken = token;
-//   getGames();
-// });
 
 // Call Games from API
-async function getGames() {
+export async function getGames(accessToken) {
   axios
     .post(cors_server + "https://api.igdb.com/v4/games", {
       headers: {
         "Client-ID": process.env.VUE_APP_CLIENT_ID,
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
+        'Accept': 'application/JSON',
       },
       body: {
         fields: "*"
@@ -57,6 +54,7 @@ async function getGames() {
     })
     .then(res => {
       console.log(res.data);
+      return res.data;
     })
     .catch(error => {
       console.error(error);
