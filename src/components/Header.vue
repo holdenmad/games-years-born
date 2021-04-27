@@ -1,5 +1,11 @@
-<template lang=""><div> </div></template>
+<template>
+    <div>Games that came out the year you were born</div>
+</template>
 <script>
-export default {};
+export default {
+    name: "Header",
+};
 </script>
-<style lang=""></style>
+
+<style scoped>
+</style>
