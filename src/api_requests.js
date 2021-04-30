@@ -33,32 +33,25 @@ export async function getAccessToken() {
   } catch (error) {
     console.log("Error: ", error);
   }
-}
-
-// Our Queen the Access Token
-// const accessToken = getAccessToken();
-
+};
 
 // Call Games from API
 export async function getGames(accessToken) {
-  axios
-    .post(cors_server + "https://api.igdb.com/v4/games", {
-      headers: {
-        "Client-ID": process.env.VUE_APP_CLIENT_ID,
-        Authorization: `Bearer ${accessToken}`,
+  axios({
+    url: `${cors_server}https://api.igdb.com/v4/games`,
+    method: 'POST',
+    headers: {
         'Accept': 'application/JSON',
-      },
-      body: {
-        fields: "*"
-      }
-    })
-    .then(res => {
-      console.log(res.data);
-      return res.data;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
-
-// Call access token and await getGames?
+        'Client-ID': client_id,
+        'Authorization': `Bearer ${accessToken}`,
+    },
+    data: "fields *;",
+  })
+  .then(res => {
+    console.log(res.data);
+    return res.data;
+  })
+  .catch(error => {
+    console.error(error);
+  });
+};

@@ -2,7 +2,8 @@
   <div id="app">
     <Header />
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="When were you born?" />
+    <Loader />
+    <Form msg="When were you born?" />
     <div>Footer component</div>
     <div></div>
   </div>
@@ -10,15 +11,17 @@
 
 <script>
 // Imports
-import HelloWorld from "./components/HelloWorld.vue";
+import Form from "./components/Form.vue";
 import Header from "./components/Header.vue";
+import Loader from './components/Loader.vue';
 import { getAccessToken, getGames } from "./api_requests";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Form,
     Header,
+    Loader,
   },
 
   // data: {
@@ -28,7 +31,7 @@ export default {
   async mounted() {
     let accessToken = await getAccessToken();
     console.log("Got access token: " + accessToken);
-    let games = await getGames();
+    let games = await getGames(accessToken);
     console.log("Got games: " + games);
   },
 
