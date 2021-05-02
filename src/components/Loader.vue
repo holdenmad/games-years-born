@@ -1,12 +1,24 @@
 <template>
-  <div class="loadingio-spinner-bean-eater-1ghxq060hmy"><div class="ldio-lo3xw6ulsua">
-<div><div></div><div></div><div></div></div><div><div></div><div></div><div></div></div>
-</div></div>
+  <div v-if="loading">
+      <div class="loadingio-spinner-bean-eater-1ghxq060hmy"><div class="ldio-lo3xw6ulsua">
+    <div><div></div><div></div><div></div></div><div><div></div><div></div><div></div></div>
+    </div></div>
+  </div>
 </template>
 
 <script>
 export default {
     name: 'Loader',
+
+    data() {
+      return {
+        loading: false,
+      }
+    },
+    
+    computed: {
+      // calculate laoding
+    },
 }
 </script>
 

@@ -39,3 +39,10 @@ export function getGames(accessToken) {
     console.error(error);
   });
 };
+
+/* 
+Release Date has its own endpoint
+We want to call this endpoint with a parameter of 'date' to search for games with this release date
+Format: Unix Time Stamp
+
+*/
