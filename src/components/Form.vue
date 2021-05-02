@@ -2,37 +2,53 @@
   <div class="form">
     <h1>{{ msg }}</h1>
     <div>Enter in your birthday</div>
-    <div>Form goes here</div>
     <div>
-      Component for viewing games goes here conditionally depending on filter
+      <label>Day</label>
+      <input type="text" v-model="day"/>
     </div>
-    <div></div>
+    <div>
+      <label>Month</label>
+      <input type="text" v-model="month"/>
+    </div>
+    <div>
+      <label>Year</label>
+      <input type="text" v-model="year"/>
+    </div>
+
+    <input type="submit" value="Submit" v-on:click="submit"/>
   </div>
 </template>
 
 <script>
 export default {
   name: "Form",
+
   props: {
     msg: String
+  },
+
+  data() {
+    return {
+      day: '',
+      month: '',
+      year: '',
+    }
+  },
+
+  methods: {
+    submit() {
+      console.log(this.day, this.month, this.year);
+
+      this.day = '';
+      this.month = '';
+      this.year = '';
+    }
   }
+
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
