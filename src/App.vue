@@ -24,15 +24,18 @@ export default {
     Loader,
   },
 
-  // data: {
-    
-  // },
+  data() {
+    return {
+      games: null,
+      accessToken: '',
+    }
+  },
 
+  // Calling data from IGDB
   async mounted() {
-    let accessToken = await getAccessToken();
-    console.log("Got access token: " + accessToken);
-    let games = await getGames(accessToken);
-    console.log("Got games: " + games);
+    this.accessToken = await getAccessToken();
+    this.games = await getGames(this.accessToken);
+    console.log(this.games);
   },
 
 };
